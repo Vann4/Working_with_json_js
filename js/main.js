@@ -25,8 +25,20 @@ for (let i=0; i<parse_users_json.users.length; i++){
     let data_array = parse_users_json.users[i];
     let li_create = document.createElement('li');
     li_create.setAttribute('style', 'font-size: 30px; margin-bottom: 2%;');
-    li_create.textContent = `Имя: ${data_array.name}, возраст: ${data_array.age}`
-    ul_search.appendChild(li_create)
+    li_create.textContent = `Имя: ${data_array.name}, возраст: ${data_array.age}`;
+    ul_search.appendChild(li_create);
     let first_li_search = document.querySelector('li');
     first_li_search.setAttribute('style', 'margin-top:2%;font-size: 30px; margin-bottom: 2%;');
 };
+
+let a = [{"a": 10, "b": true}, {"a": 20, "b": false}, {"a": 30, "b": true, "admin": true}];
+let b = JSON.stringify(a);
+
+console.log(b);
+console.log(JSON.stringify(a, ['a', 'admin'], 2));
+
+const result = JSON.stringify(a, (key, value) => {
+    if (value == false) return undefined
+    return value
+})
+console.log(result)
