@@ -1,5 +1,6 @@
 let header_create = document.createElement('header');
 let body_search = document.querySelector('body');
+body_search.setAttribute('style', 'max-width:100vw;');
 body_search.prepend(header_create); //Добавление header`a в начало body
 let head_search = document.querySelector('header');
 
@@ -13,8 +14,9 @@ head_search.after(main_create); //Вставка узлов или строк п
 let main_search = document.querySelector('main');
 
 let ul_create = document.createElement('ul');
+ul_create.setAttribute('style', 'margin:0px; border:1px solid;');
 main_search.appendChild(ul_create);
-let ul_search = document.querySelector('ul')
+let ul_search = document.querySelector('ul');
 
 let users_json = '{"id":1, "users": [{"name": "Давид", "age": 20}, {"name": "Пётр", "age": 35}]}';
 let parse_users_json = JSON.parse(users_json);
@@ -25,4 +27,6 @@ for (let i=0; i<parse_users_json.users.length; i++){
     li_create.setAttribute('style', 'font-size: 30px; margin-bottom: 2%;');
     li_create.textContent = `Имя: ${data_array.name}, возраст: ${data_array.age}`
     ul_search.appendChild(li_create)
-}
+    let first_li_search = document.querySelector('li');
+    first_li_search.setAttribute('style', 'margin-top:2%;font-size: 30px; margin-bottom: 2%;');
+};
